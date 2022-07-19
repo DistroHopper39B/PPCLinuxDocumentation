@@ -61,3 +61,27 @@ Most CRT Macs require a custom xorg.conf. If you manage to get a GUI working, pl
 - Sound: While workarounds exist to get sound working, many are broken in modern kernels and **are unsafe** on certain computers due to the speakers not being calibrated properly. **If you decide to enable sound in some way (or use an older distro that supports it, like Ubuntu 6.06) you may run the risk of blowing out your speaker. [Don't ask me how I know.](https://youtu.be/ph1LXMO1m2o) USE AT YOUR OWN RISK!**
 
 All other features, including FireWire, USB, Ethernet, CD/hard drives, and Bluetooth work.
+## 7. Installation Procedure
+### a. Debian sid
+- Download a Debian 11 netinst powerpc CD from https://cdimage.debian.org/cdimage/ports/current/. Note that you will need access to Ethernet to install.
+- Burn to a CD/DVD using any burning program or flash to a USB drive using dd, Rufus, balenaEtcher, or any other program.
+- If using a CD/DVD, insert the disc into the Mac (or a FireWire CD drive) and turn on the Mac while holding Option/Alt. When the boot picker finishes loading, select your CD/DVD and skip the USB-related steps.
+- If using a USB drive:
+    - You will probably need a **powered** USB hub or otherwise externally powered device (a powered USB hard drive enclosure will work), since most PowerPC Macs don't like to initialize high-power USB drives otherwise until a system is booted. 
+    - Connect the powered USB hub to the Mac and to an external power source.
+    - Start the Mac into Open Firmware by holding Command-Option-O-F at startup. Alternatively, press Control-Z at any firmware screen, such as the boot picker, NetBoot screen, blinking question mark screen, or Target Disk Mode screen to enter Open Firmware. You will see a `0 > ` prompt..
+    - Enter the following commands:
+    ```
+    dev usb0
+    ls
+    ```
+    - If you see any "hub" or "disk" items in the device tree that shows up, then move to the next step. If you don't, keep trying more `usb` values (`dev usb1` then `ls`, `dev usb2` then `ls`, etc).
+    - Once you see a USB tree that contains `disk` and `hub`, type the following command: ` boot usbX/hub/hub/disk:,\\:tbxi` making sure to replace the `X` with the USB port number, and making sure to use the right number of `hub` values (sometimes it's 1, sometimes it's 2). You can ignore the `@X` at the end of all device names.
+    - Photo: https://forums.macrumors.com/attachments/pxl_20220403_220757670-jpg.1985970/
+    - If this doesn't work, replace `:,\\:tbxi` with `:2,\grub.elf` or `:2,\grub\grub`.
+- Follow the installation instructions. Use XFCE (recommended), MATE, or LXDE as the desktop. Make sure to keep the root password blank in order to use `sudo` instead.
+- If the system reboots into a blinking question-mark, press Control-Z to enter Open Firmware, then type in `setenv boot-device hd:2,\grub\grub` then `reset-all`.
+- Have fun! See https://forums.macrumors.com/threads/the-powerpc-debian-wiki.2178457/ for additional guides and information.
+### b. More guides sometime soon.
+## 8. See an issue with this guide?
+Fork it and send a pull request, or file a bug report.
