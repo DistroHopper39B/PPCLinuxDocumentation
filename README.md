@@ -16,7 +16,7 @@
     - Not recommended, dropping Apple Mac support **entirely** in early 2023
     - If used, the bootstrap (Apple_Bootstrap) partition **must be 256MB or greater.** If it's not, the installation **will hang indefinitely.**
     - The GUI will not launch on the NVIDIA GeForce FXGo5200 with the default kernel (and maybe other NVIDIA cards). Install with the fallback kernel, then run "xbps-install -Su" on the installed system to update it (booted through the fallback kernel).
-    - [ArchPOWER](http://archlinuxpower.org)
+- [ArchPOWER](http://archlinuxpower.org)
     - I've never had any success personally getting it to work, but that could be because I'm an Arch Linux noob.
 - [Gentoo](http://gentoo.org)
     - May have issues compiling (untested)
