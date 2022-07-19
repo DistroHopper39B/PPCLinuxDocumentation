@@ -2,11 +2,11 @@
  Documentation for Linux on PowerMacs (big-endian PPC).
 
 ## 1. Distribution Support
-- [Ubuntu](http://ubuntu.com) 16.04 (xenial) and earlier
+- [Ubuntu](http://ubuntu.com) 16.04 (xenial) and earlier (No longer updated)
     - Not recommended, since the "xenial-updates" repository seems to be down (likely archived somewhere, but I can't find it)
     - Only [Ubuntu MATE](https://releases.ubuntu-mate.org/archived/xenial/) and Lubuntu (no longer available from official server) were available past around 14.04
     - For more information on support, see https://wiki.ubuntu.com/PowerPCKnownIssues (useful resource for all distros listed). 
-- [Debian](http://debian.org) 8 and earlier
+- [Debian](http://debian.org) 8 and earlier (No longer updated)
 - Debian unstable (sid)
     - Hidden on the Debian website, can be found at https://cdimage.debian.org/cdimage/ports/current/
     - See https://forums.macrumors.com/threads/the-powerpc-debian-wiki.2178457/ for additional information (used as a source throughout but appears slightly outdated)
